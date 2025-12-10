@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<style type="text/css">
+.container {
+	margin-top: 50px;
+}
+.row {
+	margin: 0px auto;
+	width: 800px;
+}
+.christmas-btn {
+  background: repeating-linear-gradient(
+    45deg,        /* 줄무늬 각도 */
+    #ff0000,      /* 빨강 시작 */
+    #ff0000 10px, /* 빨강 폭 */
+    #008000 10px, /* 초록 시작 */
+    #008000 20px  /* 초록 폭 */
+  );
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.christmas-btn:hover {
+  filter: brightness(1.2);
+}
+</style>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <h3 class="text-center">상세보기</h3>
+      <table class="table">
+        <tbody>
+          <tr>
+            <th width=20% class="text-center christmas-btn">번호</th>
+            <td width=30% class="text-center">[[${vo.no}]]</td>
+            <th width=20% class="text-center christmas-btn">작성일</th>
+            <td width=30% class="text-center">[[${vo.dbday}]]</td>
+          </tr>
+          <tr>
+            <th width=20% class="text-center christmas-btn">이름</th>
+            <td width=30% class="text-center">[[${vo.name}]]</td>     
+            <th width=20% class="text-center christmas-btn">조회수</th>
+            <td width=30% class="text-center">[[${vo.hit}]]</td>
+          </tr>
+          <tr>
+            <th width=20% class="text-center christmas-btn">제목</th>
+            <td colspan="3" class="text-center">[[${vo.subject}]]</td>
+          </tr>
+          <tr>
+            <td colspan="4" class="text-left" valign="top" height="250">
+              <pre style="white-space: prewrap;background-color: pink;border: none;">[[${vo.content}]]</pre>
+            </td>
+          </tr>
+          <tr>
+            <td class="text-right" colspan="4">
+              <a th:href="@{/board/reply(no=${vo.no})}" class="btn btn-xs christmas-btn">답변</a>
+              <a th:href="@{/board/update(no=${vo.no})}" class="btn btn-xs christmas-btn">수정</a>
+              <a th:href="@{/board/delete(no=${vo.no})}" class="btn btn-xs christmas-btn">삭제</a>
+              <a href="/board/list" class="btn btn-xs christmas-btn">목록</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+</html>

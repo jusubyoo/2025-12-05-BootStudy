@@ -1,0 +1,10 @@
+package com.sist.web.controller;
+
+import org.springframework.web.bind.annotation.RestController;
+// 화면 변경(x) => 다른 언어와 연동 (데이터 전송 목적) => JSON
+// CDN => Spring 에 포함
+// Component => Vue 에 자체 화면 이동 => router
+@RestController
+public class FoodRestController {
+
+}

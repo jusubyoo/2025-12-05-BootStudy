@@ -1,0 +1,33 @@
+package com.sist.web.conf;
+
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+
+import com.sist.web.interceptor.BoardInterceptor;
+/*
+ * 	1. DI => @Autowired
+ * 
+ *  5. Transaction
+ *  -------------- 필수
+ *  6. Interceptor
+ *  7. 공통 예외처리
+ *  -------------- 선택
+ *  
+ *  ThymeLeaf
+ *  --------- 화면 UI (HTML 주로 사용) JSP:JSTL
+ *      |                              |
+ *      --------------------------------
+ *                      |
+ *                     EL ${}
+ */
+@Configuration
+public class BoardConfig implements WebMvcConfigurer {
+
+	@Override
+	public void addInterceptors(InterceptorRegistry registry) {
+		registry.addInterceptor(new BoardInterceptor())
+		.addPathPatterns("/board/**").excludePathPatterns("/board/*_ok");
+	}
+	
+}

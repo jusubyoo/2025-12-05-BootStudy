@@ -1,0 +1,18 @@
+package com.sist.web.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+
+import com.sist.web.service.RecipeService;
+
+@Controller
+public class RecipeController {
+	// 필요한 객체 생성 => @Autowired => 멤버변수에만 적용
+	private RecipeService rService;
+	
+	@Autowired
+	public RecipeController(RecipeService rService)
+	{
+		this.rService=rService;
+	}
+}

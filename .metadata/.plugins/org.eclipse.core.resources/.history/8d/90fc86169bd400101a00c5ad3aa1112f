@@ -1,0 +1,44 @@
+package com.sist.web.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+
+/*
+ *  => WEB 동작을 위한 기본 틀이 만들어져 있다
+ *                  ------ 요청 처리 / 요청 결과 출력
+ *                         -------   -----------
+ *                                   | View (프리젠테이션 로직)
+ *                                     JSP, HTML, JavaScript
+ *                         | Model(비지니스 로직)
+ *                           VO, DAO, Service, Controller
+ * 
+ * 	요청 ===== DispatcherServlet
+ *                   |
+ *              HandlerMapping
+ *                   | ====> 해당 Controller 찾기
+ *                메소드 호출 (Model 에 값을 담는다)
+ *                   | 
+ *            DispatcherServlet
+ *                   | JSP,HTML 찾기
+ *              ViewResolver => 경로명/확장자
+ *                   |
+ *              찾은 JSP/HTML => Model 을 request 로 변환
+ */
+import java.util.*;
+import com.sist.web.service.*;
+import com.sist.web.vo.*;
+
+import lombok.NoArgsConstructor;
+// 브라우저와 연결
+@Controller
+@NoArgsConstructor
+public class BoardController {
+	// 필요한 객체 선언
+	private BoardService bService;
+	
+	@Autowired
+	public BoardController(BoardService bService)
+	{
+		this.bService=bService;
+	}
+}

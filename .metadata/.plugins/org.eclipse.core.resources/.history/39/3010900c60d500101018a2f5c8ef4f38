@@ -1,0 +1,13 @@
+package com.sist.web.service;
+
+import org.springframework.stereotype.Service;
+
+import com.sist.web.mapper.FoodMapper;
+
+import lombok.RequiredArgsConstructor;
+
+@Service
+@RequiredArgsConstructor // 매개변수가 있는 생성자의 주소값 (autowired 대체)
+public class FoodServiceImpl {
+	private FoodMapper mapper;
+}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<style type="text/css">
+.container {
+	margin-top: 50px;
+}
+.row {
+	margin: 0px auto;
+	width: 800px;
+}
+.christmas-btn {
+  background: repeating-linear-gradient(
+    45deg,        
+    #ff0000,      
+    #ff0000 10px, 
+    #008000 10px, 
+    #008000 20px  
+  );
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.christmas-btn:hover {
+  filter: brightness(1.2);
+}
+</style>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <h3 class="text-center">삭제하기</h3>
+    </div>
+  </div>
+</body>
+</html>

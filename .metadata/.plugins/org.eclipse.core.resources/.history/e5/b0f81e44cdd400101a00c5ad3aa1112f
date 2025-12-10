@@ -1,0 +1,16 @@
+package com.sist.web.manager;
+
+import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+
+@ControllerAdvice
+public class ControllerException {
+	// 모든 Controller
+	@ExceptionHandler(Exception.class)
+	public void exception(Exception ex)
+	{
+		System.out.println("====== Exception 발생 ======");
+		ex.printStackTrace();
+		System.out.println("===========================");
+	}
+}

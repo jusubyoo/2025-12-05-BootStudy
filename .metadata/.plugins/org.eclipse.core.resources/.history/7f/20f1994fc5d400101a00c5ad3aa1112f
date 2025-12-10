@@ -1,0 +1,100 @@
+package com.sist.web.service;
+
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.sist.web.mapper.BoardMapper;
+import com.sist.web.vo.BoardVO;
+
+@Service
+public class BoardServiceImpl implements BoardService {
+	@Autowired
+	private BoardMapper bMapper;
+
+	@Override
+	public List<BoardVO> boardListData(Map map) {
+		// TODO Auto-generated method stub
+		return bMapper.boardListData(map);
+	}
+
+	@Override
+	public int boardRowCount() {
+		// TODO Auto-generated method stub
+		return bMapper.boardRowCount();
+	}
+
+	@Override
+	public void boardInsert(BoardVO vo) {
+		// TODO Auto-generated method stub
+		bMapper.boardInsert(vo);
+	}
+
+	@Override
+	public BoardVO boardDetailData(int no) {
+		// TODO Auto-generated method stub
+		bMapper.boardHitIncrement(no);
+		return bMapper.boardDetailData(no);
+	}
+
+	@Override
+	public BoardVO boardUpdateData(int no) {
+		// TODO Auto-generated method stub
+		return bMapper.boardDetailData(no);
+	}
+
+	@Override
+	public boolean boardUpdate(BoardVO vo) {
+		// TODO Auto-generated method stub
+		boolean bCheck=false;
+		String db_pwd=bMapper.boardGetPassword(vo.getNo());
+		if(db_pwd.equals(vo.getPwd()))
+		{
+			bCheck=true;
+			bMapper.boardUpdate(vo);
+		}
+		
+		return bCheck;
+	}
+
+	@Override
+	@Transactional
+	public void boardReplyInsert(int pno, BoardVO vo) {
+		// TODO Auto-generated method stub
+		BoardVO pvo=bMapper.boardParentInfoData(pno);
+		bMapper.boardGroupStepIncrement(pvo);
+		vo.setGroup_id(pvo.getGroup_id());
+		vo.setGroup_step(pvo.getGroup_step()+1);
+		vo.setGroup_tab(pvo.getGroup_tab()+1);
+		bMapper.boardReplyInsert(vo);
+		bMapper.boardDepthIncrement(pno);
+	}
+
+	@Override
+	public boolean boardDelete(int no, String pwd) {
+		// TODO Auto-generated method stub
+		boolean bCheck=false;
+		String db_pwd=bMapper.boardGetPassword(no);
+		if(db_pwd.equals(pwd))
+		{
+			bCheck=true;
+			BoardVO vo=bMapper.boardDeleteInfoData(no);
+			if(vo.getDepth()==0)
+			{
+				bMapper.boardDelete(no);
+			}
+			else
+			{
+				bMapper.boardSubjectChange(no);
+			}
+			bMapper.boardDepthDecrement(no);
+		}
+		
+		return bCheck;
+	}
+
+
+}

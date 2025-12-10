@@ -1,0 +1,28 @@
+package com.sist.web.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import com.sist.web.service.RecipeService;
+
+@Controller
+public class RecipeController {
+	// 필요한 객체 생성 => @Autowired => 멤버변수에만 적용
+	private RecipeService rService;
+	// OOP가 깨진다
+	
+	@Autowired
+	public RecipeController(RecipeService rService)
+	{
+		this.rService=rService;
+	}
+	
+	@GetMapping("/recipe/list")
+	public String recipe_list(@RequestParam(name = "page",required = false) String page)
+	{
+		
+		return "recipe/list";
+	}
+}

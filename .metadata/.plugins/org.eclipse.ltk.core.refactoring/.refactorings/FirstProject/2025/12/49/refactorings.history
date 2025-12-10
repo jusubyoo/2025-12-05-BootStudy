@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move package &apos;com.sist.web&apos; to &apos;SpringBootJspProject/src/main/java&apos;&#x0D;&#x0A;- Original project: &apos;FirstProject&apos;&#x0D;&#x0A;- Destination element: &apos;SpringBootJspProject/src/main/java&apos;&#x0D;&#x0A;- Original element: &apos;FirstProject/src/main/java/com.sist.web&apos;&#x0D;&#x0A;- Update references to refactored element" description="Move package" destination="=SpringBootJspProject/src\/main\/java=/gradle_scope=/main=/=/gradle_used_by_scope=/main,test=/" element1="/src\/main\/java=/gradle_scope=/main=/=/gradle_used_by_scope=/main,test=/&lt;com.sist.web" flags="589830" fragments="1" id="org.eclipse.jdt.ui.move" policy="org.eclipse.jdt.ui.movePackages" stamp="1764902902176" version="1.0"/>
+</session>

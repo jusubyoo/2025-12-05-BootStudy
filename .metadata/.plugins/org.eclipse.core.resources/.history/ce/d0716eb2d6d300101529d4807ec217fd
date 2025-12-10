@@ -1,0 +1,6 @@
+package com.sist.web.vo;
+import java.util.*;
+public class EmpVO {
+	private int empno,sal,deptno,mgr,comm;
+	private String ename,job,dbday;
+}

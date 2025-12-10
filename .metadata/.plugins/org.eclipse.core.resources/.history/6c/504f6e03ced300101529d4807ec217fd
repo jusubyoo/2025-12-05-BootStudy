@@ -1,0 +1,46 @@
+package com.sist.web.controller;
+/*
+ * 	1. 교재
+ *     1장 : 스프링 프레임워크
+ *          = DI, AOP (경량 컨테이너)
+ *            DI : 객체 생성시에 필요한 데이터를 주입
+ *                 => 이미 생성된 객체의 주소값을 얻는 경우
+ *                 => 큰 의미 : 객체와 객체의 연관 관계 설정
+ *                 => DI의 종류
+ *                    1) setter DI : set 메소드를 이용해서 변수의 초기화
+ *                       <bean id="" class=""
+ *                        p:name="" (properties)
+ *                       />
+ *                       = application.properties
+ *                       = application.yml에 등록
+ *                       
+ *                    2) 생성자 DI : 매개변수에 값을 첨부
+ *                       <bean id="" class=""
+ *                        c:name="" (contructor)
+ *                       />
+ *                       
+ *                    3) 메소드 DI 
+ *                       = 객체 소멸시에 자동 호출
+ *                       = 객체 소멸시에 자동 호출 
+ *                       <bean id="" class=""
+ *                        init-method="init"
+ *                        destroy-method="destroy"
+ *                       />
+ *                    4) 객체 주소값 주입 : 스프링에서 생성된 객체
+ *                       @Autowired => 스프링에서 자동으로 객체를 찾아서 주소값 대입
+ *                       A a;
+ *                       => @Resource(name="id명") => 1.8 이전에서만 사용
+ *            = Container : 스프링에 등록된 클래스를 관리하는 영역
+ *                                 ----------------
+ *                                 객체 생성 ~ 객체 소멸
+ *                          종류
+ *                          BeanFactory
+ *                               |
+ *                          ApplicationContext
+ *                               | => AnnotationConfigApplicationContext
+ *                                    | 어노테이션 기반
+ *                          WebApplicationContext
+ */
+public class FoodController {
+	
+}

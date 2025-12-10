@@ -1,0 +1,20 @@
+package com.sist.web.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+
+@Controller
+public class FoodController {
+	@GetMapping("/food/find")
+	public String food_find()
+	{
+		return "food/find"; // templates/food/find.html
+	}
+	
+	@GetMapping("/food/detail")
+	public String food_detail(int fno, Model model)
+	{
+		return "food/detail";
+	}
+}
